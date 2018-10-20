@@ -15,26 +15,25 @@
     <h2>Marvel Cinematic Universe Trivia</h2>
       
     <!-- start page - appears first -->
-        <button type="button" id="start-button">Let's Start!</button>
+        <div class="start-page">
+            <img src="assets/images/marvel-image.jpg" class="image-size" alt="marvel image">
+            <br><br>
+            <button type="button" id="start-button">Let's Start!</button>
+        </div>
 
     <!-- trivia page - appears second -->
         <div class="trivia-page">
-
             <h3>Time Remaining: <span id="timer-text"></span></h3>
-
             <div class="trivia-text">
                 <!-- JavaScript Dynamic Elements here -->
             </div>
-
             <button type="button" id="submit-button">Submit</button>
-
         </div>
         
     <!-- trivia page - appears third -->
-        <div class="results-page">
-
-            <h3>Results: <span id="results-text"></span></h3>
-
+        <div class="results-page">          
+            <img src="assets/images/marvel-image.jpg" class="image-size" alt="marvel image">
+            <h3>Results</h3>
             <p>Correct: <span id="correct-holder"></span>  </p> 
             <p>Incorrect: <span id="incorrect-holder"></span> </p>
         </div>

@@ -7,8 +7,8 @@ var interval;
 
 var triviaGame = [ 
     {   question: "What color is the Hulk?" , 
-    choices: ["Purple", "Green", "Red", "Blue"] ,
-    answer: "Green" // 2
+        choices: ["Purple", "Green", "Red", "Blue"] ,
+        answer: "Green" // 2
     } ,
     {   question: "What is Steve Rogers' superhero name?" , 
         choices: ["Spiderman", "Dr. Strange", "Captain America", "Winter Soldier"] ,
@@ -53,7 +53,9 @@ function decrement () {
         stop();
         $(".trivia-page").hide(); // trivia page hides
         $(".results-page").show(); // results page shows
-        $("#results-text").text("Results Here!");
+
+        $("#correct-holder").text(correct);
+        $("#incorrect-holder").text(triviaGame.length - correct);
     }
 }
 
@@ -86,10 +88,17 @@ function displayTrivia () {
 };
 
 function selectChoices () {
+
     $(".choice").on("click", function() {
-        var selected = $(this).attr("value");
+
+        //creates id to hook to css to change styles
+        console.log(this);
+        $(this).attr("id", "selectedChoice");
+
+        // determines if selected choice is correct 
         for (var i=0; i < triviaGame.length; i ++) {
-            if (selected === triviaGame[i].answer) {
+            var selectedValue = $(this).attr("value");
+            if (selectedValue === triviaGame[i].answer) {
                 correct++;
             } 
         }
@@ -106,7 +115,7 @@ $(".results-page").hide();
 
     // to START game after clicking start-button
 $("#start-button").on("click", function() {
-    $(this).hide();   // start button hides
+    $(".start-page").hide();   // start page hides
     $(".trivia-page").show(); //trivia page shows
 });
 
@@ -127,8 +136,6 @@ $("#submit-button").on("click", function() {
 
     $("#correct-holder").text(correct);
     $("#incorrect-holder").text(triviaGame.length - correct);
-
 });
-
 
 });

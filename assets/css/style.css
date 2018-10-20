@@ -10,6 +10,7 @@ body {
 
 .display {
     background: #fff;
+    opacity: 0.8;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -17,13 +18,27 @@ body {
     width: 40%;
 }
 
-button {
+#start-button,
+#submit-button {
     cursor:pointer;
+    /* background: blue;
+    font-color: white; */
+    height: 35px;
+    width: 115px;
+}
+
+.image-size {
+    height: 337.5px;
+    width: 600px;
 }
 
 h1, h2, h3, p {
    font-family: Arial, Helvetica, sans-serif;
    text-align: center;
+}
+
+p {
+    font-size: 18; 
 }
 
 .question,
@@ -34,7 +49,7 @@ h1, h2, h3, p {
 }
 
 .question {
-    font-size: 22;
+    font-size: 30;
     font-weight: 700;
     margin-top: 20px;
 }
@@ -42,6 +57,12 @@ h1, h2, h3, p {
 .choice {
     cursor:pointer;
     font-size: 18;
+}
+
+#selectedChoice {
+    background-color: blue;
+    color: white;
+    font-weight: 700;
 }
 
 
