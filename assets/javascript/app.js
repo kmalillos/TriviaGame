@@ -6,13 +6,13 @@ var timer = 60;
 var interval;
 
 var triviaGame = [ 
+    {   question: "What color is the Hulk?" , 
+    choices: ["Purple", "Green", "Red", "Blue"] ,
+    answer: "Green" // 2
+    } ,
     {   question: "What is Steve Rogers' superhero name?" , 
         choices: ["Spiderman", "Dr. Strange", "Captain America", "Winter Soldier"] ,
         answer: "Captain America" // 3
-    } , 
-    {   question: "What color is the Hulk?" , 
-        choices: ["Purple", "Green", "Red", "Blue"] ,
-        answer: "Green" // 2
     } , 
     {   question: "Who is the God of Thunder?" , 
         choices: ["Loki", "Thor", "Ironman", "Hulk"] ,
@@ -22,14 +22,14 @@ var triviaGame = [
         choices: ["Ultron", "Sokovia", "Asgaard", "Wakanda"] ,
         answer: "Wakanda" // 4
     } ,    
+    {   question: "What Infinity Stone does Vision have?" , 
+        choices: ["Mind", "Soul", "Power", "Reality"] ,
+        answer: "Mind" // 1
+    },
     {   question: "How many actors named Chris star in the Marvel Cinematic Universe?" , 
         choices: ["1", "2", "3", "4"] ,
         answer: "3" // 3
     },
-    {   question: "What Infinity Stone does Vision have?" , 
-        choices: ["Mind", "Soul", "Power", "Reality"] ,
-        answer: "Mind" // 1
-    }
 ]
 
 var correct = 0;
@@ -62,13 +62,6 @@ function stop () {
     clearInterval(interval);
 }
 
-function startGame() {
-    $(".correct-holder").empty();
-    $(".incorrect-holder").empty();
-    correct = 0;
-    incorrect = 0;
-}
-
 function displayTrivia () {
 
     var triviaText = $(".trivia-text");
@@ -77,7 +70,6 @@ function displayTrivia () {
     for (var i=0; i < triviaGame.length; i ++) {
         var questionHolder = $("<div>");
             questionHolder.addClass("question");
-            //questionHolder.attr('id', ("question-"+i));
             questionHolder.append(triviaGame[i].question)     
         triviaText.append(questionHolder);
 
@@ -85,7 +77,7 @@ function displayTrivia () {
         for (var j=0; j < triviaGame.length; j++) {
             var choicesHolder = $("<div>");
                 choicesHolder.addClass("choice");
-                //choicesHolder.attr('id', ("question-"+i+"-choice-"+j));
+                choicesHolder.attr('value', triviaGame[i].choices[j]);
                 choicesHolder.append(triviaGame[i].choices[j]);
             triviaText.append(choicesHolder);
 
@@ -95,24 +87,14 @@ function displayTrivia () {
 
 function selectChoices () {
     $(".choice").on("click", function() {
-
-        console.log(this);
-    
-    // for (var i=0; i < triviaGame.length; i ++) {
-    
-    //     if (selected === triviaGame[i].answer) {
-            
-    //         correct++;
-    //     } else {
-    //         incorrect++;
-    //     }
-    // }
-
-    
-
-    console.log("Correct: " + correct);
-    console.log("Incorrect: " + incorrect);
-});
+        var selected = $(this).attr("value");
+        for (var i=0; i < triviaGame.length; i ++) {
+            if (selected === triviaGame[i].answer) {
+                correct++;
+            } 
+        }
+        console.log("Correct: " + correct);
+    });
 }
 
 // --- Main Process ---
@@ -128,23 +110,24 @@ $("#start-button").on("click", function() {
     $(".trivia-page").show(); //trivia page shows
 });
 
+    // to CALL function that begins timer
 startTimer();
 
-startGame();
-
+    // to CALL function that displays trivia 
 displayTrivia();
 
+     // to CALL function that selects choices
 selectChoices();
 
-
-// trivia ends when submitted (- or when time runs out, another function)
+    // trivia ends when submitted (- or when time runs out, another function)
 $("#submit-button").on("click", function() {
     $(this).hide();   // submit button hides
     $(".trivia-page").hide(); // trivia page hides
     $(".results-page").show(); // results page shows
 
     $("#correct-holder").text(correct);
-    $("#incorrect-holder").text(incorrect);
+    $("#incorrect-holder").text(triviaGame.length - correct);
+
 });
 
 
