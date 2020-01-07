@@ -14,9 +14,13 @@ Have you seen the googolplex of MCU Movies? Well, ready or not, test your Avenge
 
 ### JavaScript / jQuery:
 
+* Start Page
+
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/01.JPG)
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/02.JPG)
+
+* Timer
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/03.JPG)
 
@@ -26,9 +30,17 @@ Have you seen the googolplex of MCU Movies? Well, ready or not, test your Avenge
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/06.JPG)
 
+* Display Trivia Game
+
+![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/03.JPG)
+
+![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/04.JPG)
+
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/07.JPG)
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/08.JPG)
+
+* Submit & Results
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/09.JPG)
 
