@@ -12,6 +12,8 @@ Have you seen the googolplex of MCU Movies? Well, ready or not, test your Avenge
 
 ## Developer Notes
 
+*** *Developer Notes are still in progress* ***
+
 ### JavaScript / jQuery:
 
 * Start Page
