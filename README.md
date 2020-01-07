@@ -2,7 +2,7 @@
 
 Have you seen all 100 MCU Movies? Ready or not, test your Avenger knowledge with this timed Trivia Game! 
 
-### Try It Out: [Live Page Here](https://kmalillos.github.io/triviagame/)
+### Try It Out: [Live Page Here](https://kmalillos.github.io/TriviaGame/)
 
 ![Image](https://github.com/kmalillos/triviagame/blob/master/assets/readme/home.JPG)
 

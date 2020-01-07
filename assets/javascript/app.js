@@ -1,6 +1,7 @@
 $(document).ready(function () {  
 
-// --- Global Variables ---
+// === GLOBAL VARIABLES === 
+// ===========================================================================================================
 
 var timer = 60; 
 var interval;
@@ -36,14 +37,15 @@ var correct = 0;
 var incorrect = 0;
 
 
-// --- Functions ---
+// === FUNCTIONS ===
+// ===========================================================================================================-
 
-    // to start timer
+// timer functionality
+
 function startTimer () {
-        interval = setInterval(decrementTimer, 1000); // decrease by 1 sec
+    interval = setInterval(decrementTimer, 1000); // decrease by 1 sec
 }
 
-    // to countdown timer
 function decrementTimer () {
     timer--;
     $("#timer-text").text(timer);
@@ -54,11 +56,12 @@ function decrementTimer () {
     }
 }
 
-    // to stop timer
 function stopTimer () {
     clearInterval(interval);
     submitGame();
 }
+
+// trivia functionality
 
 function displayTrivia () {
 
@@ -66,6 +69,7 @@ function displayTrivia () {
 
     // to DISPLAY triviaGame questions
     for (var i=0; i < triviaGame.length; i ++) {
+        // questionHolder = <div class="question"> triviaGame[i].question</div>
         var questionHolder = $("<div>");
             questionHolder.addClass("question");
             questionHolder.append(triviaGame[i].question)     
@@ -73,17 +77,7 @@ function displayTrivia () {
 
         // to DISPLAY triviaGame choices
         for (var j=0; j < triviaGame[i].choices.length; j++) {
-            // var choicesHolder = $("<div>");
-            //     choicesHolder.addClass("choice");
-            //     choicesHolder.attr('value', triviaGame[i].choices[j]);
-            //     choicesHolder.append(triviaGame[i].choices[j]);
-            // triviaText.append(choicesHolder);
-
-            // var choicesHolder = "<input type='radio' value='" + triviaGame[i].choices[j] + "' name='question-" + i + "'>" + triviaGame[i].choices[j] + "<br>"
-            //     choicesHolder.attr("name", ("question-"+i))
-            //     choicesHolder.attr("value", triviaGame[i].choices[j]);
-            //     choicesHolder.text(triviaGame[i].choices[j])
-            // triviaText.append(choicesHolder);
+            // <input type="radio" value="triviaGame[i].choices[j]" name="question-i"> triviaGame[i].choices[j] <br>
 
             triviaText.append("<input type='radio' value='" + triviaGame[i].choices[j] + 
                                 "' name='question-" + i + "'>" + triviaGame[i].choices[j] + "<br>");
@@ -91,27 +85,6 @@ function displayTrivia () {
         }   
     }
 };
-
-// function selectChoices () {
-
-//     $(".choice").on("click", function() {
-
-//         //creates id to hook to css to change styles
-//         console.log(this);
-//         $(this).attr("id", "selectedChoice");
-
-//         // determines if selected choice is correct 
-//         for (var i=0; i < triviaGame.length; i ++) {
-//             var selectedValue = $(this).attr("value");
-//             if (selectedValue === triviaGame[i].answer) {
-//                 correct++;
-//             } 
-//         }
-//         console.log("Correct: " + correct);
-//     });
-// }
-
-    // to SUBMIT game
 
 function submitGame () {
 
@@ -138,41 +111,38 @@ function submitGame () {
 };
 
 function restartGame () {
-
+// to do
 }
 
-// --- Main Process ---
+// === MAIN PROCESS ===
+// ===========================================================================================================
 
-        // start button appears first
-    // trivia and result pages are hidden from beginning
-    $(".trivia-page").hide();
-    $(".results-page").hide();
-    
-        // to START game after clicking start-button
-    $("#start-button").on("click", function() {
-        $(".start-page").hide();   // start page hides
-        $(".trivia-page").show(); //trivia page shows
-    });
-    
-        // to CALL function that begins timer
-    startTimer();
-    
-        // to CALL function that displays trivia 
-    displayTrivia();
-    
-    //      // to CALL function that selects choices
-    // selectChoices();
-    
-        // trivia ends when submitted (- or when time runs out, another function)
-    $("#submit-button").on("click", function() {
-        stopTimer();
-        $(this).hide();   
-    });
+// trivia and result pages are hidden from beginning
+$(".trivia-page").hide();
+$(".results-page").hide();
 
-    //     // restart game
-    // $("#restart-button").on("click", function() {
-    //     restartGame();
-    // });
+// to START game after clicking start-button
+$("#start-button").on("click", function() {
+    $(".start-page").hide();   // start page hides
+    $(".trivia-page").show(); //trivia page shows
+});
+
+// to CALL function that begins timer
+startTimer();
+
+// to CALL function that displays trivia 
+displayTrivia();
+
+// trivia ends when submitted (- or when time runs out, another function)
+$("#submit-button").on("click", function() {
+    stopTimer();
+    $(this).hide();   
+});
+
+//     // restart game
+// $("#restart-button").on("click", function() {
+//     restartGame();
+// });
 
 
 });
